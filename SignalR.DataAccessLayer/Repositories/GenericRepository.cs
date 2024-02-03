@@ -31,12 +31,12 @@ namespace SignalR.DataAccessLayer.Repositories
 
         public T GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().Find(id);
         }
 
         public List<T> GetListAll()
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().ToList();
         }
 
         public void Update(T entity)
