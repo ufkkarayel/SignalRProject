@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DtoLayer.CategoryDto;
+using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Controllers
 {
@@ -23,6 +24,16 @@ namespace SignalRApi.Controllers
         {
             var values = _mapper.Map<List<ResultCategoryDto>>(_categoryService.TGetListAll());
             return Ok(values);
+        }
+        [HttpPost]
+        public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
+        {
+            _categoryService.TAdd(new Category()
+            {
+                CategoryName = createCategoryDto.CategoryName,
+                CategoryStatus = createCategoryDto.CategoryStatus
+            });
+            return Ok("Kategori eklendi");
         }
     }
 }
