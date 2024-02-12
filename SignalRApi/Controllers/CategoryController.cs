@@ -42,5 +42,22 @@ namespace SignalRApi.Controllers
             _categoryService.TDelete(value);
             return Ok("Kategori silindi");
         }
+        [HttpGet("GetCategory")]
+        public IActionResult GetCategory(int id)
+        {
+            var value = _categoryService.TGetByID(id);           
+            return Ok(value);
+        }
+        [HttpPut]
+        public IActionResult UpdateCategory(UpdateCategoryDto updateCategoryDto)
+        {
+            _categoryService.TUpdate(new Category()
+            {
+                CategoryName = updateCategoryDto.CategoryName,
+                CategoryStatus = updateCategoryDto.CategoryStatus,
+                CategoryID = updateCategoryDto.CategoryID
+            });
+            return Ok("Kategori güncellendi");
+        }
     }
 }
