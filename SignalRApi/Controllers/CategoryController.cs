@@ -35,5 +35,12 @@ namespace SignalRApi.Controllers
             });
             return Ok("Kategori eklendi");
         }
+        [HttpDelete]
+        public IActionResult DeleteCategory(int id)
+        {
+            var value = _categoryService.TGetByID(id);
+            _categoryService.TDelete(value);
+            return Ok("Kategori silindi");
+        }
     }
 }
