@@ -50,5 +50,18 @@ namespace SignalRApi.Controllers
             var value=_contactService.TGetByID(id);
             return Ok(value);
         }
+        [HttpPut]
+        public IActionResult UpdateContact(UpdateContactDto updateContactDto)
+        {
+            _contactService.TUpdate(new Contact()
+            {
+                FooterDescription = updateContactDto.FooterDescription,
+                Location = updateContactDto.Location,
+                Mail = updateContactDto.Mail,
+                Phone = updateContactDto.Phone,
+                ContactID = updateContactDto.ContactID
+            });
+            return Ok("Contact güncellendi");
+        }
     }
 }
