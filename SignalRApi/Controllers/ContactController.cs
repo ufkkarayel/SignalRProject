@@ -37,5 +37,18 @@ namespace SignalRApi.Controllers
             });
             return Ok("Contact eklendi");
         }
+        [HttpDelete]
+        public IActionResult DeleteContact(int id)
+        {
+            var value = _contactService.TGetByID(id);
+            _contactService.TDelete(value);
+            return Ok("Contact silindi");
+        }
+        [HttpGet("GetContact")]
+        public IActionResult GetContact(int id)
+        {
+            var value=_contactService.TGetByID(id);
+            return Ok(value);
+        }
     }
 }
