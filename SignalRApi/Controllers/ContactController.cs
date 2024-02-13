@@ -11,7 +11,7 @@ namespace SignalRApi.Controllers
     [ApiController]
     public class ContactController : ControllerBase
     {
-        // 
+        // IContactServiceten ve IMapper'dan miras alır. 
         private readonly IContactService _contactService;
         private readonly IMapper _mapper;
 
