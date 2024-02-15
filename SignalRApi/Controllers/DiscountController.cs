@@ -37,5 +37,12 @@ namespace SignalRApi.Controllers
             });
             return Ok("Başarıyla oluşturuldu");
         }
+        [HttpDelete]
+        public IActionResult DeleteDiscount(int id)
+        {
+            var value = _discountService.TGetByID(id);
+            _discountService.TDelete(value);
+            return Ok("Başarıyla silindi");
+        }
     }
 }
