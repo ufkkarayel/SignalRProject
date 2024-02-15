@@ -45,8 +45,12 @@ namespace SignalRApi.Controllers
             return Ok("Başarıyla silindi");
         }
 
-        [HttpGet]
-
+        [HttpGet("GetDiscount")]
+        public IActionResult GetDiscount(int id)
+        {
+            var value=_discountService.TGetByID(id);
+            return Ok(value);
+        }
 
         [HttpPut]
         public IActionResult UpdateDiscount(UpdateDiscountDto updateDiscountDto)
