@@ -44,5 +44,26 @@ namespace SignalRApi.Controllers
             _discountService.TDelete(value);
             return Ok("Başarıyla silindi");
         }
+
+        [HttpGet]
+
+
+        [HttpPut]
+        public IActionResult UpdateDiscount(UpdateDiscountDto updateDiscountDto)
+        {
+            _discountService.TUpdate(new Discount
+            {
+                DiscountID = updateDiscountDto.DiscountID,
+                Amount = updateDiscountDto.Amount,
+                Description = updateDiscountDto.Description,
+                ImageUrl = updateDiscountDto.ImageUrl,
+                Title = updateDiscountDto.Title
+            });
+            return Ok("Başarıyla güncellendi");
+        }
+
+
+
+        
     }
 }
