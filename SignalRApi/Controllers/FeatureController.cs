@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DtoLayer.FeatureDto;
+using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Controllers
 {
@@ -23,6 +24,20 @@ namespace SignalRApi.Controllers
         {
             var values = _mapper.Map<List<ResultFeatureDto>>(_featureService.TGetListAll());
             return Ok(values);
+        }
+        [HttpPost]
+        public IActionResult CreateFeature(CreateFeatureDto createFeatureDto)
+        {
+            _featureService.TAdd(new Feature
+            {
+                Description1 = createFeatureDto.Description1,
+                Description2 = createFeatureDto.Description2,
+                Description3 = createFeatureDto.Description3,
+                Title1 = createFeatureDto.Title1,
+                Title2 = createFeatureDto.Title2,
+                Title3 = createFeatureDto.Title3
+            });
+            return Ok("Başarıyla eklendi");
         }
     }
 }
