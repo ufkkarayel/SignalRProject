@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
+using SignalR.DtoLayer.FeatureDto;
 
 namespace SignalRApi.Controllers
 {
@@ -16,6 +17,12 @@ namespace SignalRApi.Controllers
         {
             _featureService = featureService;
             _mapper = mapper;
+        }
+        [HttpGet]
+        public IActionResult FeatureList()
+        {
+            var values = _mapper.Map<List<ResultFeatureDto>>(_featureService.TGetListAll());
+            return Ok(values);
         }
     }
 }
