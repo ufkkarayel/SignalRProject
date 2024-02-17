@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DtoLayer.ProductDto;
+using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Controllers
 {
@@ -23,6 +24,19 @@ namespace SignalRApi.Controllers
         {
             var values = _mapper.Map<List<ResultProductDto>>(_productService.TGetListAll());
             return Ok(values);
+        }
+        [HttpPost]
+        public IActionResult CreateProduct(CreateProductDto createProductDto)
+        {
+            _productService.TAdd(new Product
+            {
+                Description = createProductDto.Description,
+                ImageUrl = createProductDto.ImageUrl,
+                Price = createProductDto.Price,
+                ProductName = createProductDto.ProductName,
+                ProductStatus = createProductDto.ProductStatus
+            });
+            return Ok("Başarıyla eklendi");
         }
     }
 }
