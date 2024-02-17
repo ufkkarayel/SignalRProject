@@ -45,5 +45,11 @@ namespace SignalRApi.Controllers
             _productService.TDelete(value);
             return Ok("Başarıyla silindi");
         }
+        [HttpGet("GetProduct")]
+        public IActionResult GetProduct(int id)
+        {
+            var value = _productService.TGetByID(id);
+            return Ok(value);
+        }
     }
 }
