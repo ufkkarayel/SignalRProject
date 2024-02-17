@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
+using SignalR.DtoLayer.ProductDto;
 
 namespace SignalRApi.Controllers
 {
@@ -16,6 +17,12 @@ namespace SignalRApi.Controllers
         {
             _productService = productService;
             _mapper = mapper;
+        }
+        [HttpGet]
+        public IActionResult ProductList() 
+        {
+            var values = _mapper.Map<List<ResultProductDto>>(_productService.TGetListAll());
+            return Ok(values);
         }
     }
 }
