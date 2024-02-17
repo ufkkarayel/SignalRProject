@@ -37,5 +37,17 @@ namespace SignalRApi.Controllers
             });
             return Ok("Başarıyla oluşturuldu");
         }
+        [HttpDelete]
+        public IActionResult DeleteTestimonial(int id)
+        {
+            var value=_testimonialService.TGetByID(id);
+            _testimonialService.TDelete(value);
+            return Ok("Başarıyla silindi");
+        }
+        [HttpGet("GetTestimonial")]
+        public IActionResult GetTestimonial(int id)
+        {
+
+        }
     }
 }
