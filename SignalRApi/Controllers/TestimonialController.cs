@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DtoLayer.TestimonialDto;
+using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Controllers
 {
@@ -23,6 +24,18 @@ namespace SignalRApi.Controllers
         {
             var values = _mapper.Map<List<ResultTestimonialDto>>(_testimonialService.TGetListAll());
             return Ok(values);
+        }
+        [HttpPost]
+        public IActionResult CreateTestimonial(CreateTestimonialDto createTestimonialDto)
+        {
+            _testimonialService.TAdd(new Testimonial()
+            {
+                ImageUrl = createTestimonialDto.ImageUrl,
+                Name = createTestimonialDto.Name,
+                Status = createTestimonialDto.Status,
+                Title = createTestimonialDto.Title
+            });
+            return Ok("Başarıyla oluşturuldu");
         }
     }
 }
