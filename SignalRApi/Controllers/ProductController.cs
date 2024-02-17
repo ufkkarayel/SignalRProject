@@ -28,7 +28,7 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
-            _productService.TAdd(new Product
+            _productService.TAdd(new Product()
             {
                 Description = createProductDto.Description,
                 ImageUrl = createProductDto.ImageUrl,
@@ -50,6 +50,21 @@ namespace SignalRApi.Controllers
         {
             var value = _productService.TGetByID(id);
             return Ok(value);
+        }
+        [HttpPut]
+        public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
+        {
+            _productService.TUpdate(new Product()
+            {
+                Description = updateProductDto.Description,
+                ImageUrl = updateProductDto.ImageUrl,
+                Price = updateProductDto.Price,
+                ProductName = updateProductDto.ProductName,
+                ProductStatus = updateProductDto.ProductStatus,
+                ProductID= updateProductDto.ProductID
+
+            });
+            return Ok("Başarıyla güncellendi");
         }
     }
 }
