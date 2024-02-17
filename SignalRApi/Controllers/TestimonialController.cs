@@ -47,7 +47,21 @@ namespace SignalRApi.Controllers
         [HttpGet("GetTestimonial")]
         public IActionResult GetTestimonial(int id)
         {
-
+            var value = _testimonialService.TGetByID(id);
+            return Ok(value);
+        }
+        [HttpPut]
+        public IActionResult UpdateTestimonial(UpdateTestimonialDto updateTestimonialDto)
+        {
+            _testimonialService.TUpdate(new Testimonial()
+            {
+                ImageUrl = updateTestimonialDto.ImageUrl,
+                Name = updateTestimonialDto.Name,
+                Status = updateTestimonialDto.Status,
+                Title = updateTestimonialDto.Title,
+                TestimonialID = updateTestimonialDto.TestimonialID
+            });
+            return Ok("Başarıyla güncellendi");
         }
     }
 }
