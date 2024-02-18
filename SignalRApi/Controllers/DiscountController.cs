@@ -63,7 +63,7 @@ namespace SignalRApi.Controllers
                 ImageUrl = updateDiscountDto.ImageUrl,
                 Title = updateDiscountDto.Title
             });
-            return Ok("Başarıyla güncellendi");
+            return Ok("İndirim bilgisi güncellendi");
         }
 
 
