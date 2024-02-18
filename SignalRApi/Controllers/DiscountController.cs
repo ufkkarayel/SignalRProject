@@ -35,7 +35,7 @@ namespace SignalRApi.Controllers
                 ImageUrl = createDiscountDto.ImageUrl,
                 Title = createDiscountDto.Title
             });
-            return Ok("Başarıyla oluşturuldu");
+            return Ok("İndirim bilgisi oluşturuldu");
         }
         [HttpDelete]
         public IActionResult DeleteDiscount(int id)
