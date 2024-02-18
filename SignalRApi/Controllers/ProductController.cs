@@ -36,7 +36,7 @@ namespace SignalRApi.Controllers
                 ProductName = createProductDto.ProductName,
                 ProductStatus = createProductDto.ProductStatus
             });
-            return Ok("Başarıyla eklendi");
+            return Ok("Ürün bilgisi eklendi");
         }
         [HttpDelete]
         public IActionResult DeleteProduct(int id)
