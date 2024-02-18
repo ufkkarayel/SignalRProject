@@ -37,7 +37,7 @@ namespace SignalRApi.Controllers
                 Title2 = createFeatureDto.Title2,
                 Title3 = createFeatureDto.Title3
             });
-            return Ok("Başarıyla eklendi");
+            return Ok("Öne çıkan bilgisi eklendi");
         }
         [HttpDelete]
         public IActionResult DeleteFeature(int id)
