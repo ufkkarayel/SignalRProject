@@ -44,7 +44,7 @@ namespace SignalRApi.Controllers
         {
             var value = _featureService.TGetByID(id);
             _featureService.TDelete(value);
-            return Ok("Başarıyla silindi");
+            return Ok("Öne çıkan bilgisi silindi");
         }
         [HttpGet("GetFeature")]
         public IActionResult GetFeature(int id)
@@ -65,7 +65,7 @@ namespace SignalRApi.Controllers
                 Title2 = updateFeatureDto.Title2,
                 Title3 = updateFeatureDto.Title3
             });
-            return Ok("Başarıyla güncellendi");
+            return Ok("Öne çıkan bilgisi güncellendi");
         }
     }
 }
