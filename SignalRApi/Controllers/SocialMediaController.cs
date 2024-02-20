@@ -34,7 +34,7 @@ namespace SignalRApi.Controllers
                 Title = createSocialMediaDto.Title,
                 Url = createSocialMediaDto.Url
             });
-            return Ok("Başarıyla kaydedildi");
+            return Ok("Sosyal medya bilgisi kaydedildi");
         }
         [HttpDelete]
         public IActionResult DeleteSocialMedia(int id)
