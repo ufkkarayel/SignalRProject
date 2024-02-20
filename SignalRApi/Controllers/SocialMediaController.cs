@@ -41,7 +41,7 @@ namespace SignalRApi.Controllers
         {
             var value=_service.TGetByID(id);
             _service.TDelete(value);
-            return Ok("Başarıyla silindi");
+            return Ok("Sosyal medya bilgisi silindi");
         }
         [HttpGet("GetSocialMedia")]
         public  IActionResult GetSocialMedia(int id)
