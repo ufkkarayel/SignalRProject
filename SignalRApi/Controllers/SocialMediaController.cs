@@ -59,7 +59,7 @@ namespace SignalRApi.Controllers
                 Url = updateSocialMediaDto.Url,
                 SocialMediaID = updateSocialMediaDto.SocialMediaID
             });
-            return Ok("Başarıyla kaydedildi");
+            return Ok("Sosyal medya bilgisi güncellendi");
         }
 
     }
