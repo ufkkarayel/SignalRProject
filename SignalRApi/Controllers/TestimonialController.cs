@@ -35,7 +35,7 @@ namespace SignalRApi.Controllers
                 Status = createTestimonialDto.Status,
                 Title = createTestimonialDto.Title
             });
-            return Ok("Başarıyla oluşturuldu");
+            return Ok("Müşteri bilgisi oluşturuldu");
         }
         [HttpDelete]
         public IActionResult DeleteTestimonial(int id)
