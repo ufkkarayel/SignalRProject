@@ -61,7 +61,7 @@ namespace SignalRApi.Controllers
                 Title = updateTestimonialDto.Title,
                 TestimonialID = updateTestimonialDto.TestimonialID
             });
-            return Ok("Başarıyla güncellendi");
+            return Ok("Müşteri bilgisi güncellendi");
         }
     }
 }
