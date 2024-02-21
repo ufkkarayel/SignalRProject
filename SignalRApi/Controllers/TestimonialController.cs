@@ -42,7 +42,7 @@ namespace SignalRApi.Controllers
         {
             var value=_testimonialService.TGetByID(id);
             _testimonialService.TDelete(value);
-            return Ok("Başarıyla silindi");
+            return Ok("Müşteri bilgisi silindi");
         }
         [HttpGet("GetTestimonial")]
         public IActionResult GetTestimonial(int id)
