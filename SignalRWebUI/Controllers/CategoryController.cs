@@ -34,10 +34,22 @@ namespace SignalRWebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
         {
+            createCategoryDto.CategoryStatus=true;
             var client=_httpClientFactory.CreateClient();
             var jsonData=JsonConvert.SerializeObject(createCategoryDto);
             StringContent stringContent = new StringContent(jsonData,Encoding.UTF8,"application/json");
             var responseMessage = await client.PostAsync("https://localhost:7152/api/Category",stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+        
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            var client= _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"https://localhost:7152/api/Category/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
