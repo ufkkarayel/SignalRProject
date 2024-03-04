@@ -62,8 +62,11 @@ namespace SignalRWebUI.Controllers
             var responseMessage = await client.GetAsync($"https://localhost:7152/api/Category/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
-                var jsonData=
+                var jsonData= await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonData);
+                return View(values);
             }
+            return View();
         }
     }
 }
