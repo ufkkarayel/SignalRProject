@@ -5,6 +5,7 @@
 }
 
 
+
 <div class="content">
     <div class="container-fluid">
         <h4 class="page-title">Kategori İşlemleri</h4>
@@ -13,17 +14,17 @@
                 <form method="post">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title"> Kategori Güncelleme Girişi</div>
+                            <div class="card-title">Kategori Güncelleme Sayfası</div>
                         </div>
                         <div class="card-body">
-                                <input type="hidden" asp-for="CategoryID"  />
+                            <input type="hidden" asp-for="CategoryID" />
                             <div class="form-group">
-                                <label for="categoryname">Kategori Adı</label>
-                                <input type="text" asp-for="CategoryName" class="form-control" id="categoryname">
+                                <label for="categoryname">Kategori Adını Giriniz</label>
+                                <input type="text" class="form-control" asp-for="CategoryName" id="categoryname">
                             </div>
                         </div>
                         <div class="card-action">
-                            <button class="btn btn-info">Güncelle</button>
+                            <button class="btn btn-primary">Kategoriyi Güncelle</button>
                         </div>
                     </div>
                 </form>
