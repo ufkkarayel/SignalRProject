@@ -48,10 +48,23 @@ namespace SignalRWebUI.Controllers
         public async Task<IActionResult> DeleteProduct()
         {
             var client=_httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync("https://localhost:7152/api/Product/{id}");
+            var responseMessage = await client.DeleteAsync($"https://localhost:7152/api/Product/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
+            }
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> UpdateProduct(int id)
+        {
+            var client=_httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7152/api/Product/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData=await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
+                return View(values);
             }
             return View();
         }
