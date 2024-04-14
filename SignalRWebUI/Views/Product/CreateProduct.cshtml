@@ -5,9 +5,6 @@
 }
 
 
-
-
-
 <div class="content">
     <div class="container-fluid">
         <h4 class="page-title">Ürün İşlemleri</h4>
@@ -16,12 +13,42 @@
                 <form method="post">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-title">Yeni Kategori Girişi</div>
+                            <div class="card-title">Yeni Ürün Girişi</div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="categoryname">Kategori Adı</label>
-                                <input type="text" asp-for="CategoryName" class="form-control" id="categoryname">
+                                <label for="productname">Ürün Adı</label>
+                                <input type="text" asp-for="ProductName" class="form-control" id="productname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="price">Ürün Fiyatı</label>
+                                <input type="text" asp-for="Price" class="form-control" id="price">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="imageurl">Ürün Görseli</label>
+                                <input type="text" asp-for="ImageUrl" class="form-control" id="imageurl">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="productstatus">Ürün Durumu</label>
+                                <input type="text" asp-for="ProductStatus" class="form-control" id="productstatus">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="productname">Ürün Kategorisi</label>
+                                <input type="text" asp-for="ProductName" class="form-control" id="productname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="description">Ürün Açıklaması</label>
+                                <input type="text" asp-for="Description" class="form-control" id="description">
                             </div>
                         </div>
                         <div class="card-action">
