@@ -46,7 +46,7 @@ namespace SignalRWebUI.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteAbout(int id)
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.DeleteAsync($"https://localhost:7152/api/About/{id}");
@@ -57,7 +57,7 @@ namespace SignalRWebUI.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> UpdateCategory(int id)
+        public async Task<IActionResult> UpdateAbout(int id)
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7152/api/About/{id}");
@@ -70,10 +70,10 @@ namespace SignalRWebUI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateCategory(UpdateAboutDto updateCategoryDto)
+        public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
+            var jsonData = JsonConvert.SerializeObject(updateAboutDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PutAsync("https://localhost:7152/api/About", stringContent);
             if (responseMessage.IsSuccessStatusCode)
