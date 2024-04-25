@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.DtoLayer.AboutDto
+namespace SignalRWebUI.Dtos.AboutDtos
 {
     public class ResultAboutDto
     {
