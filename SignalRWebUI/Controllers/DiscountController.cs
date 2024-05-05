@@ -46,17 +46,19 @@ namespace SignalRWebUI.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DeleteDiscount(int id)
-        {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"https://localhost:7152/api/Discount/{id}");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return View();
-        }
-        [HttpGet]
+		public async Task<IActionResult> DeleteDiscount(int id)
+		{
+			var client = _httpClientFactory.CreateClient();
+			var responseMessage = await client.DeleteAsync($"https://localhost:7152/api/Discount/{id}");
+			if (responseMessage.IsSuccessStatusCode)
+			{
+				return RedirectToAction("Index");
+			}
+			return View();
+		}
+
+
+		[HttpGet]
         public async Task<IActionResult> UpdateDiscount(int id)
         {
             var client = _httpClientFactory.CreateClient();
